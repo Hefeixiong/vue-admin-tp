@@ -4,12 +4,13 @@ import './registerServiceWorker'
 import router from './router'
 import store from './store'
 
-
+import ElementUI from 'element-ui'
 import SvgIcon from 'vue-svgicon'
 import '@/icons/components'
 
 Vue.config.productionTip = false
 
+Vue.use(ElementUI)
 Vue.use(SvgIcon, {
   tagName: 'svg-icon',
   defaultWidth: '1em',
