@@ -5,7 +5,25 @@
         :is-active="sidebar.open"
         class="hamburger-container"
         @toggle-click="toggleSideBar"/>
-    <breadcrumb/>
+    <breadcrumb id="breadcrumb-container" class="breadcrumb-container"/>
+
+    <div class="right-menu">
+      <template>
+
+        <div class="avatar-wrapper">
+<!--          <img-->
+<!--              :src="avatar+'?imageView2/1/w/80/h/80'"-->
+<!--              class="user-avatar"-->
+<!--          >-->
+          <i class="el-icon-caret-bottom" />
+        </div>
+        <a
+            href="https://github.com/Hefeixiong/vue-admin-tp"
+            target="_blank">
+          <el-dropdown-item>GitHub</el-dropdown-item>
+        </a>
+      </template>
+    </div>
   </div>
 </template>
 
