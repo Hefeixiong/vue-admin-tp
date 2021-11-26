@@ -11,13 +11,16 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "js-cookie": "2.2.1",
     "register-service-worker": "^1.7.1",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.3",
+    "vue-i18n": "8.24.2",
     "vue-property-decorator": "^9.1.2",
     "vue-router": "^3.2.0",
     "vue-svgicon": "3.2.9",
-    "vuex": "^3.4.0"
+    "vuex": "^3.4.0",
+    "vuex-module-decorators": "1.0.1"
   },
   "devDependencies": {
     "@types/jest": "^24.0.19",
@@ -33,7 +36,7 @@
     "@vue/cli-service": "^4.5.0",
     "@vue/eslint-config-typescript": "^7.0.0",
     "@vue/test-utils": "^1.0.3",
-    "element-ui": "^2.15.6",
+    "element-ui": "^2.15.1",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
     "lint-staged": "^9.5.0",
