@@ -1,38 +1,40 @@
-import Vue from 'vue'
-import VueRouter, { RouteConfig } from 'vue-router'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
 import test from '@/views/test.vue';
-import Layout from '@/layout'
+import Layout from '@/layout/index.vue';
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
-const routes: Array<RouteConfig> = [
-  {
-    path: '/test',
-    name: 'test',
-    component: test
+export default new VueRouter({
+  scrollBehavior: (to, from, savedPosition) => {
+    if (savedPosition) {
+      return savedPosition;
+    } else {
+      return {x: 0, y: 0};
+    }
   },
-  {
-    path: '/',
-    component: Layout,
-    redirect: '/dashboard',
-    children: [
-      {
-        path: 'dashboard',
-        component: () => import(/* webpackChunkName: "dashboard" */ '@/views/dashboard/index.vue'),
-        name: 'Dashboard',
-        meta: {
-          title: 'dashboard',
-          icon: 'dashboard',
-          affix: true
+
+  base: process.env.BASE_URL,
+
+  routes: [
+    {
+      path: '/test',
+      component: test
+    },
+    {
+      path: '/',
+      component: Layout,
+      redirect: '/dashboard',
+      children: [
+        {
+          path: 'dashboard',
+          component: () => import('@/views/dashboard/index.vue'),
+          meta: {
+            title: 'Dashboard',
+            icon: 'dashboard'
+          }
         }
-      }
-    ]
-  },
-
-]
-
-const router = new VueRouter({
-  routes
-})
-
-export default router
+      ]
+    }
+  ]
+});
