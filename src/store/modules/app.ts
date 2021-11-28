@@ -14,8 +14,6 @@ export interface IAppState {
     opened: boolean
     withoutAnimation: boolean
   }
-  language: string
-  size: string
 }
 
 @Module({ dynamic: true, store, name: 'app' })
@@ -24,10 +22,7 @@ class App extends VuexModule implements IAppState {
     opened: getSidebarStatus() !== 'closed',
     withoutAnimation: false
   }
-
   public device = DeviceType.Desktop
-  public language = getLocale()
-  public size = getSize() || 'medium'
 
   @Mutation
   private TOGGLE_SIDEBAR(withoutAnimation: boolean) {
@@ -52,18 +47,6 @@ class App extends VuexModule implements IAppState {
     this.device = device
   }
 
-  @Mutation
-  private SET_LANGUAGE(language: string) {
-    this.language = language
-    setLanguage(this.language)
-  }
-
-  @Mutation
-  private SET_SIZE(size: string) {
-    this.size = size
-    setSize(this.size)
-  }
-
   @Action
   public ToggleSideBar(withoutAnimation: boolean) {
     this.TOGGLE_SIDEBAR(withoutAnimation)
@@ -77,16 +60,6 @@ class App extends VuexModule implements IAppState {
   @Action
   public ToggleDevice(device: DeviceType) {
     this.TOGGLE_DEVICE(device)
-  }
-
-  @Action
-  public SetLanguage(language: string) {
-    this.SET_LANGUAGE(language)
-  }
-
-  @Action
-  public SetSize(size: string) {
-    this.SET_SIZE(size)
   }
 }
 
